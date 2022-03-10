@@ -5,9 +5,13 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class WorkingHours {
 	
-	private final String opens;
-	private final String closes;
+	private String opens;
+	private String closes;
 	
+	public WorkingHours() {
+		super();
+	}
+
 	public WorkingHours(String opens, String closes) {
 		super();
 		this.opens = opens;
