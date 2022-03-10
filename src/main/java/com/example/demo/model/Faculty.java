@@ -3,6 +3,7 @@ package com.example.demo.model;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +15,7 @@ public class Faculty {
 	
 	@Id
 	private String id;
+	@Column(unique=true)
 	private String name;
 	@OneToMany(targetEntity = Room.class, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Set<Room> rooms;

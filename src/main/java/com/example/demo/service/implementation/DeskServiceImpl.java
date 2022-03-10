@@ -19,6 +19,17 @@ public class DeskServiceImpl implements DeskService{
 	public List<Desk> getAll() {
 		return deskRepository.findAll();
 	}
+
+	@Override
+	public void deleteDeskById(String id) {
+		deskRepository.deleteRoomDesk(id);
+		deskRepository.deleteById(id);
+	}
+
+	@Override
+	public List<Desk> getRoomDesks(String room) {
+		return deskRepository.getRoomDesks(room);
+	}
 	
 	
 }

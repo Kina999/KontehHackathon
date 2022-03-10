@@ -14,7 +14,6 @@ public class Room {
 	@Id
 	private String id;
 	private String name;
-	
 	@OneToMany(targetEntity = Desk.class, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Set<Desk> desks;
 	
