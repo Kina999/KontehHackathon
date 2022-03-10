@@ -12,6 +12,7 @@ import com.example.demo.service.interfaces.FacultyService;
 @RestController
 @RequestMapping(value = "/faculties")
 public class FacultyController {
+	
 	@Autowired
 	private FacultyService facultyService;
 	

@@ -7,4 +7,5 @@ import com.example.demo.model.Faculty;
 public interface FacultyService {
 	
 	public List<Faculty> getAll();
+	
 }

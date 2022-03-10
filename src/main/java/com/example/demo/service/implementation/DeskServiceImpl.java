@@ -43,10 +43,13 @@ public class DeskServiceImpl implements DeskService{
 	}
 
 	public Integer getNewDeskNumber(String roomId) {
+		
 		List<Desk> roomDesks = deskRepository.getRoomDesks(roomId);
+		
 		Integer newTableNumber = 0;
 		boolean exists = false;
 		boolean deskNumberFound = false;
+		
 		while(!deskNumberFound) {
 			for(Desk desk : roomDesks) {
 				if(desk.getOrder() == newTableNumber) {
@@ -57,31 +60,23 @@ public class DeskServiceImpl implements DeskService{
 			if(exists) {
 				newTableNumber++;
 				exists = false;
-			}else {
-				deskNumberFound = true;
-			}
+			}else {deskNumberFound = true;}
 		}
 		return newTableNumber;
 	}
 	
 	public String generateDeskId() {
 		
+		int stringLength = 24;
 		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 + "0123456789"
                 + "abcdefghijklmnopqrstuvxyz";
-
-		int stringLength = 24;
 		
 		StringBuilder sb = new StringBuilder(stringLength);
 		
 		for (int i = 0; i < stringLength; i++) {
-		
-		int index
-		= (int)(AlphaNumericString.length()
-		    * Math.random());
-		
-		sb.append(AlphaNumericString
-		      .charAt(index));
+			int index = (int)(AlphaNumericString.length() * Math.random());			
+			sb.append(AlphaNumericString.charAt(index));
 		}
 		
 		return sb.toString();
