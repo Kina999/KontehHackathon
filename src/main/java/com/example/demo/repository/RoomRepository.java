@@ -2,7 +2,10 @@ package com.example.demo.repository;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -15,4 +18,8 @@ public interface RoomRepository extends JpaRepository<Room, String>{
 			+ "where r.id = rd.rooms_id and faculty_id = f.id and f.name = ?1", nativeQuery = true)
 	List<Room> getFacultyRooms(String facultyName);
 	
+	@Modifying
+	@Transactional
+	@Query(value = "insert into room_desks(room_id, desks_id) values (?1, ?2)", nativeQuery = true)
+	void addDeskToRoom(String roomId, String deskId);
 }

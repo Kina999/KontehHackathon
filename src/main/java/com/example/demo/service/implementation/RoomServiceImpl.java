@@ -25,5 +25,8 @@ public class RoomServiceImpl implements RoomService{
 		return roomRepository.getFacultyRooms(faculty);
 	}
 
-	
+	@Override
+	public void addDeskToRoom(String deskId, String roomId) {
+		roomRepository.addDeskToRoom(roomId, deskId);
+	}
 }

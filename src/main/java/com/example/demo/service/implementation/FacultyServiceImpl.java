@@ -19,5 +19,5 @@ public class FacultyServiceImpl implements FacultyService{
 	public List<Faculty> getAll() {
 		return facultyRepository.findAll();
 	}
-
+	
 }
